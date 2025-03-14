@@ -1,0 +1,29 @@
+name: Modificación del Código de la Aplicación
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - gestion_clientes/*
+
+jobs:
+  modify-code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Revisar código de modificación
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Instalar dependencias
+      run: |
+        pip install -r gestion_clientes/requirements.txt
+
+    - name: Ejecutar pruebas de código
+      run: |
+        pytest gestion_clientes/tests
