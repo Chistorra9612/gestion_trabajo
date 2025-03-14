@@ -1,0 +1,22 @@
+name: Solicitud de Nuevas Funciones
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  new-feature-request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Revisar la solicitud de nuevas funciones
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Notificar al equipo sobre la nueva función
+      run: |
+        echo "Se ha solicitado una nueva funcionalidad para la aplicación."
