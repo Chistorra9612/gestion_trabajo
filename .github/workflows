@@ -1,2 +1,14 @@
 .github/
 └── workflows/
+│       └── cliente.yml
+│       └── modificar_cliente.yml
+│       └── consulta_cliente.yml
+│       └── mejora_app.yml
+│       └── modificar_codigo.yml
+│       └── nuevas_funciones.yml
+├── gestion_clientes/
+│   └── app.py
+│   └── requirements.txt
+├── Dockerfile
+├── .dockerignore
+├── README.md
