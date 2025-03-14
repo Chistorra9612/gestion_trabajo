@@ -1,0 +1,22 @@
+name: Solicitud de Mejora a la Aplicación
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  improvement-request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Revisar la solicitud de mejora
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Notificar al equipo sobre la mejora
+      run: |
+        echo "Se ha abierto una solicitud de mejora para la aplicación"
