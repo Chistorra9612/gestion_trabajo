@@ -1,0 +1,29 @@
+name: Consulta Información de Cliente
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - gestion_clientes/*
+
+jobs:
+  query-client:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Revisar código de consulta de cliente
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Instalar dependencias
+      run: |
+        pip install -r gestion_clientes/requirements.txt
+
+    - name: Ejecutar pruebas de consulta de cliente
+      run: |
+        pytest gestion_clientes/test_consulta_cliente.py
